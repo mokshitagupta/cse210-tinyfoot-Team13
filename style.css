@@ -1,0 +1,73 @@
+*{
+    background-color: #F1E0C5;
+    /* font-size: 80px; */
+    /* text-align: center; */
+
+}
+
+t-ftn {
+    display: inline-block;
+    width: 3.5em;
+    height: 1.2em;
+    background-color: rgba(128, 125, 125, 0.728);
+    border-radius: 1em;
+    position: relative;
+    top:50%;
+    transform: translateY(25%);
+    text-align: center;
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+    /* text-align: center; */
+    /* bottom: 50%; */
+}
+
+t-ftn:hover{
+    background-color: rgba(98, 96, 96, 0.728);
+}
+
+t-ftn::after {
+    text-align: center;
+    content: "...";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 2.5em;
+    transform: translate(-50%, -75%);
+    color: white;
+    /* margin: auto; */
+    /* position: relative;
+    left: 0;
+    bottom: 0; */
+    /* font-size: 2em;
+    position: absolute;
+    width: 3em;
+    height: 1.2em; */
+}
+
+/* note css */
+.note {
+    position: absolute;
+    top: 25px;
+    visibility: hidden;
+    background-color: #C9B79C;
+    border: solid;
+    border-color: #342A21;
+    /* user-select: none; */
+}
+
+/* Makes the footnote visible when "show" class is added */
+.show{
+    visibility: visible;
+}
+
+/* little arrow on the note */
+.note::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #342A21 transparent;
+  }
