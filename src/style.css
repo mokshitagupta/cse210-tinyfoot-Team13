@@ -1,0 +1,71 @@
+:root {
+    --footnote-color: rgba(200, 211, 226, 0.93);
+}
+
+*{
+    background-color: #d8c8da;
+}
+
+t-ftn {
+    display: inline-block;
+    width: 3.5em;
+    height: 1.2em;
+    background-color: rgba(85, 70, 138, 0.728);
+    border-radius: 1em;
+    position: relative;
+    top:50%;
+    transform: translateY(25%);
+    text-align: center;
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+    z-index: 10;
+}
+
+t-ftn::part(aside) {
+    margin-top: calc(1.2em * 1.7);
+    position: absolute;
+    z-index: 1;
+    background-color: var(--footnote-color);
+    padding: 1em;
+    border-radius: 0.7em;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* little arrow on the note */
+t-ftn::part(arrow) {
+    position: absolute;
+    top: -1em;
+    transform: scale(3);
+    width: 0; 
+    height: 0; 
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent var(--footnote-color) transparent;
+}
+
+t-ftn::part(content) {
+    width: max-content;
+    max-width: 15em;
+    max-height: 15em;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    text-align: left;
+}
+
+t-ftn:hover{
+    background-color: rgba(49, 39, 85, 0.728);
+}
+
+t-ftn::after {
+    /* border: solid; */
+    text-align: center;
+    content: "⬤ ‎ ⬤ ‎ ⬤";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 0.2em;
+    font-size: 0.4em;
+    transform: translate(-50%, -75%);
+    color: rgb(231, 231, 233);
+}
