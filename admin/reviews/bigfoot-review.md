@@ -71,5 +71,8 @@ Probably not.
    
 
 **Updated bigfoot:**  
+
+In the modified version of bigfoot, audio of the text from the footnote is played using the SpeechSynthesisUtterance() Web API. 
+
 Github repo: [https://github.com/rohanthorat27/bigfoot](https://github.com/rohanthorat27/bigfoot)  
 Demo: [https://rohanthorat27.github.io/bigfoot/](https://rohanthorat27.github.io/bigfoot/)  
