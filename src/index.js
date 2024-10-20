@@ -2,10 +2,17 @@ import {addFootnote, removeAllFootnotes, toggleFootnote, removeFootnote} from '.
 import {distance} from './utils.js'
 
 let content = {}
-let ftns = document.querySelectorAll("t-ftn") //selects all footnotes
+let ftns = document.querySelectorAll("t-ftn"); //selects all footnotes
+
+//options
+let options = document.querySelector("t-options");
+var hover = options.dataset.hover === 'true';
+var unhover = options.dataset.unhoverdelete === 'true';
+let hoverDelay = options.dataset.hoverdelay === undefined ? 0 : options.dataset.hoverdelay;
 
 //removes all footnotes except the one that is opened
 window.addEventListener("click", (e) => removeAllFootnotes(e.target));
+
 
 for(let i of ftns){
     content[i] = i.innerHTML
@@ -14,14 +21,16 @@ for(let i of ftns){
     let hover = i.getAttribute("data-hover")
 
     // hover/click option hub (more options to be added)
-    if(hover === 'true'){
+    if(hover){
         i.addEventListener("mouseenter", addFootnote);
-        // i.addEventListener("mouseout", removeFootnote);
         i.addEventListener("click", removeFootnote);
     }else{
         i.addEventListener("click", toggleFootnote);  
     }
-    
+
+    if(unhover){
+        i.addEventListener("mouseout", removeFootnoteWithTimer);
+    }
 }
 
 
@@ -32,7 +41,6 @@ class Footnote extends HTMLElement {
       super();
       this.content = ""
     }
-
   
     connectedCallback() {
         const shadow = this.attachShadow({ mode: "open" });
@@ -61,6 +69,8 @@ class Footnote extends HTMLElement {
         const rect = inside.getBoundingClientRect()
         const lim = document.body.clientWidth;
         console.log(rect.x, lim)
+
+        //repositions div to fit on screen
         if ((rect.x + rect.width) > lim){
             let dif = (rect.x + rect.width) - lim
             let newpos = rect.x - dif
@@ -71,6 +81,7 @@ class Footnote extends HTMLElement {
             aside.style.left =  10 + "px"
         }
 
+        //calculations for arrow
         const near = distance(this, aside)
         const w = aside.getBoundingClientRect().width
         const perc = (near/w) * 100
@@ -78,5 +89,4 @@ class Footnote extends HTMLElement {
         arr.style.left = perc + "%";
     }
   }
-  
-customElements.define("t-ftn", Footnote);
+
