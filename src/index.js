@@ -1,26 +1,32 @@
 let content = {}
-let ftns = document.querySelectorAll("t-ftn") //selects all footnotes
+let ftns = document.querySelectorAll("t-ftn"); //selects all footnotes
+
+//options
+let options = document.querySelector("t-options");
+var hover = options.dataset.hover === 'true';
+var unhover = options.dataset.unhoverdelete === 'true';
+let hoverDelay = options.dataset.hoverdelay === undefined ? 0 : options.dataset.hoverdelay;
 
 //removes all footnotes except the one that is opened
 window.addEventListener("click", (e) => removeAllFootnotes(e.target));
 
-for( i of ftns){
-    content[i] = i.innerHTML
-
-    // option grabbing
-    let hover = i.getAttribute("data-hover")
+for(i of ftns){
+    content[i] = i.innerHTML;
 
     // hover/click option hub (more options to be added)
-    if(hover === 'true'){
+    if(hover){
         i.addEventListener("mouseenter", addFootnote);
-        // i.addEventListener("mouseout", removeFootnote);
         i.addEventListener("click", removeFootnote);
     }else{
         i.addEventListener("click", toggleFootnote);  
     }
-    
+
+    if(unhover){
+        i.addEventListener("mouseout", removeFootnoteWithTimer);
+    }
 }
 
+// calculates distance for the arrow
 function distance(tdiv, bdiv) {
     const trect = tdiv.getBoundingClientRect();
     const brect = bdiv.getBoundingClientRect();
@@ -40,7 +46,6 @@ class Footnote extends HTMLElement {
       super();
       this.content = ""
     }
-
   
     connectedCallback() {
         const shadow = this.attachShadow({ mode: "open" });
@@ -69,6 +74,8 @@ class Footnote extends HTMLElement {
         const rect = inside.getBoundingClientRect()
         const lim = document.body.clientWidth;
         console.log(rect.x, lim)
+
+        //repositions div to fit on screen
         if ((rect.x + rect.width) > lim){
             let dif = (rect.x + rect.width) - lim
             let newpos = rect.x - dif
@@ -79,6 +86,7 @@ class Footnote extends HTMLElement {
             aside.style.left =  10 + "px"
         }
 
+        //calculations for arrow
         const near = distance(this, aside)
         const w = aside.getBoundingClientRect().width
         const perc = (near/w) * 100
@@ -110,6 +118,12 @@ function addFootnote(){
 // removes visibility from clicked footnote
 function removeFootnote(){
     this.shadowRoot.children[1].style.visibility = 'hidden';
+}
+
+async function removeFootnoteWithTimer(){
+    setTimeout(() => {
+        this.shadowRoot.children[1].style.visibility = 'hidden';
+    }, hoverDelay);
 }
 
 // removes visibility from all footnotes except for current note (if there is one)
