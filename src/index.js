@@ -90,3 +90,4 @@ class Footnote extends HTMLElement {
     }
   }
 
+customElements.define("t-ftn", Footnote)
