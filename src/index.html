@@ -20,10 +20,10 @@
         }
 
         .left {
-            width: 25%;
+            width: 100%;
             display: flex;
-            justify-content: left;
-            align-items: left
+            justify-content: center;
+            align-items: center;
         }
 
         .footnote-demo {
@@ -60,7 +60,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #ccc;
+            background-color: #898888;
             -webkit-transition: .4s;
             transition: .4s;
         }
@@ -102,7 +102,7 @@
     <div class="buttons">
         <div class="left">
             <label class="switch">
-                <input type="checkbox" onclick="toggleHover()">
+                <input id="hover-button" type="checkbox">
                 <span class="toggle round"></span>
             </label>
             Hover
@@ -111,7 +111,7 @@
 
         <div class="left">
             <label class="switch">
-                <input type="checkbox" onclick="toggleUnhover()">
+                <input id="unhover-button" type="checkbox">
                 <span class="toggle round"></span>
             </label>
             DeleteOnUnhover
@@ -148,7 +148,8 @@
         </div>
     </div>
 
-    <script src="index.js"></script>
+    <script src="index.js" type="module"></script>
+    <script src="demo.js" type="module"></script>
 </body>
 
 </html>
