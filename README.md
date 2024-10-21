@@ -70,8 +70,8 @@ calculates the distance to place the arrow from the top left of footnote-popup t
 
 ## Classes
 
+**Footnote()** 
 class associated with the ```<t-ftn>``` custom tag, see https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements
-**Footnote()**
 
 ## Configuration
 see the example section for using this in your code!
