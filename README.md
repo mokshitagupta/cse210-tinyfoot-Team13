@@ -3,7 +3,8 @@ Updated Bigfoot demo: [https://rohanthorat27.github.io/bigfoot/](https://rohanth
 
 Updated Littlefoot demo: [https://rohanthorat27.github.io/littlefoot/](https://rohanthorat27.github.io/littlefoot/)
 
-Tinyfoot demo: [https://mokshitagupta.github.io/team13/demo/](https://mokshitagupta.github.io/cse210-tinyfoot-Team13/)
+Tinyfoot demo: [https://mokshitagupta.github.io/cse210-tinyfoot-Team13/demo](https://mokshitagupta.github.io/cse210-tinyfoot-Team13/demo)
+
 # Tinyfoot
 
 ## Overview
