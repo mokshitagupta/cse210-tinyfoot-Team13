@@ -10,13 +10,15 @@ Updated Littlefoot demo: [https://rohanthorat27.github.io/bigfoot/](https://roha
 
 ## Installation and Rebuilding
 You can download or clone this repo to your device, and then move the ```dist``` folder to your project workplace. Then, add 
-```1. <link
+1. 
+```
+<link
   rel="stylesheet"
   href="dist/style.css"
 />
 ```
+2.
 ```
-2. 
 <script
   src="dist/index.js"
   type="application/javascript"
