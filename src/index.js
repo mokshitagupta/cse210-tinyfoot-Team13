@@ -7,22 +7,46 @@ var hover = options.dataset.hover === 'true';
 var unhover = options.dataset.unhoverdelete === 'true';
 let hoverDelay = options.dataset.hoverdelay === undefined ? 0 : options.dataset.hoverdelay;
 
+var slider = document.getElementById("myRange");
+slider.oninput = function() {
+    hoverDelay = this.value;
+}
+
 //removes all footnotes except the one that is opened
 window.addEventListener("click", (e) => removeAllFootnotes(e.target));
+initializeFootnotes();
 
-for(i of ftns){
-    content[i] = i.innerHTML;
+function toggleHover(){
+    hover = !hover;
+    initializeFootnotes();
+}
 
-    // hover/click option hub (more options to be added)
-    if(hover){
-        i.addEventListener("mouseenter", addFootnote);
-        i.addEventListener("click", removeFootnote);
-    }else{
-        i.addEventListener("click", toggleFootnote);  
-    }
+function toggleUnhover(){
+    unhover = !unhover;
+    initializeFootnotes();
+}
 
-    if(unhover){
-        i.addEventListener("mouseout", removeFootnoteWithTimer);
+function initializeFootnotes(){
+
+    for(i of ftns){
+        content[i] = i.innerHTML;
+        i.removeEventListener("mouseenter", addFootnote);
+        i.removeEventListener("click", removeFootnote);
+        i.removeEventListener("click", toggleFootnote);
+        i.removeEventListener("mouseout", removeFootnoteWithTimer);
+    
+        // hover/click option hub (more options to be added)
+        if(hover){
+            i.addEventListener("mouseenter", addFootnote);
+            i.addEventListener("click", removeFootnote);
+        }else{
+            i.addEventListener("click", toggleFootnote);  
+        }
+    
+        if(unhover){
+            i.addEventListener("mouseout", removeFootnoteWithTimer);
+        }
+        
     }
 }
 
