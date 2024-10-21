@@ -1,0 +1,32 @@
+Minutes of the meeting: (19/10/2024):
+
+Agenda : 
+
+- Get an idea of the progress so far and distribute the remaining supplementary
+
+
+IMP : Meeting @ 7 pm tommorow , Agenda : Retro, host tinyfoot 
+
+To do:
+
+-- littlefoot demo to be hosted -> Rohan
+-- chris & fude's branch to be updated with changes we've made to littefoot -> After Rohan hosts => Tanmay is syncing the documentation structure and content
+-- tinyfoot documentation -> Angus ( you can put it in the technical details to start with and someone can jump in to join you )
+-- automate github hosted updates with changes
+-- ADR -> prep pros/cons/resources -> Kshitij & Mokshita & Chris
+-- Reorganize the js file with proper structure -> Kshitij, Mokshita
+-- explore rollup to generate the build -> Tanmay
+
+Updates:
+
+-- Rohan's documentation branch for bigfoot merged to dev and deleted 
+-- Features for tiny foot have all been implemneted
+
+
+
+
+Imp detail mentioned regarding the assignment on Prof's webpage - 
+
+You must have a Github page or other page that documents and demos your new code
+Your repo readme should overview the project, provide mentions of features, link to the demo, and provide a roadmap or indication of things to be done
+
