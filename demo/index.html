@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../dist/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        .flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .left {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footnote-demo {
+            height: 8em;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 3em;
+            gap: 0.5em;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 1.67em;
+            height: 1em;
+            margin-right: 0.5em;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #898888;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .toggle:before {
+            position: absolute;
+            content: "";
+            height: 0.7em;
+            width: 0.7em;
+            top: 0.13em;
+            left: 0.13em;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked+.toggle {
+            background-color: var(--purple);
+        }
+
+        input:checked+.toggle:before {
+            -webkit-transform: translateX(0.0.7em);
+            -ms-transform: translateX(0.7em);
+            transform: translateX(0.7em);
+        }
+
+        /* Rounded sliders */
+        .toggle.round {
+            border-radius: 2em;
+        }
+
+        .toggle.round:before {
+            border-radius: 50%;
+        }
+    </style>
+    <!-- options -->
+    <t-options data-hover="false" data-unhoverdelete="false" data-hoverdelay="0" />
+
+    <div class="buttons">
+        <div class="left">
+            <label class="switch">
+                <input id="hover-button" type="checkbox">
+                <span class="toggle round"></span>
+            </label>
+            Hover
+            <!-- <button onclick="toggleHover()">Toggle</button> -->
+        </div>
+
+        <div class="left">
+            <label class="switch">
+                <input id="unhover-button" type="checkbox">
+                <span class="toggle round"></span>
+            </label>
+            DeleteOnUnhover
+            <!-- <button onclick="toggleUnhover()">on/off</button> -->
+        </div>
+
+        <div class="flex" id="slider-container">
+            <div>
+                HoverDelay:
+            </div>
+            <div>
+                0s
+                <input type="range" min="0" max="2000" value="250" class="slider" id="myRange">
+                2s
+            </div>
+        </div>
+    </div>
+
+    <div class="flex footnote-demo">
+        <div>
+            <p>
+                <t-ftn>
+                    <a href="#fn:1">This is footnote 1</a>
+                </t-ftn>
+                This is a footnote
+            </p>
+
+            <p>
+                This is another footnote here:
+                <t-ftn>
+                    <a href="#fn:2">This is footnote 2</a>
+                </t-ftn>
+            </p>
+        </div>
+    </div>
+
+    <script src="../dist/bundle.js" type="module"></script>
+    <script type="module">
+        import { toggleHover, toggleUnhover, setHoverDelay } from "../src/actions.js"
+
+        let hoverButton = document.getElementById('hover-button')
+        let unhoverButton = document.getElementById('unhover-button')
+
+        hoverButton.addEventListener('click', toggleHover);
+        unhoverButton.addEventListener('click', toggleUnhover);
+
+        var slider = document.getElementById("myRange");
+        slider.oninput = function () {
+            setHoverDelay(this.value);
+        }
+    </script>
+</body>
+
+</html>

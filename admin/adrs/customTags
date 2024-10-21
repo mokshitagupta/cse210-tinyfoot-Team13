@@ -1,0 +1,26 @@
+# ADR: Use of Custom HTML Tags for Footnote Library
+
+## Context
+We need a simple solution for implementing footnotes in our web project. Current methods are long winded.
+
+## Considerations
+- Developer ease of use
+- Maintainability
+- Future flexibility
+
+## Considered Options
+1. Brownfield on given JavaScript library (Footnote.js)
+2. JS injection to custom class
+
+## Decision Outcome
+**Chosen Option:** Implement **custom HTML tags**.
+
+### Rationale
+Custom tags improve readability and maintainability, allowing centralized control over footnotes.
+
+### Consequences
+- **Positive**: Clearer code, easier updates, consistent styling.
+- **Negative**: Potential browser compatibility issues.
+
+## Links
+- [Custom Elements MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
