@@ -26,35 +26,35 @@ if you want a footnote that opens when user hovers on it and disappears 1 second
 ```<t-options data-hover=“true” data-unhoverdelete=“true” data-hoverdelay=“1000”></t-options>```
 ```<t-ftn><a id=“ftn:1”>Hello, World!<a/></t-ftn>```
 
-##Functions
-adds event listeners and sets up for footnotes
+## Functions
 **initializeFootnotes()**
+adds event listeners and sets up for footnotes
 
-toggles visibility when the note is clicked
 **toggleFootnote()**
+toggles visibility when the note is clicked
 
-adds visibility to clicked footnote
 **addFootnote()**
+adds visibility to clicked footnote
 
-removes visibility from clicked footnote
 **removeFootnote()**
+removes visibility from clicked footnote
 
-removes visibility from clicked footnote with timer (for hover delay)
 **removeFootnoteWithTimer()**
+removes visibility from clicked footnote with timer (for hover delay)
 
+**removeAllFootnotes(curr)**
 removes visibility from all footnotes except for current note (if there is one)
 curr = current note
-**removeAllFootnotes(curr)**
 
-calculates the distance to place the arrow from the top left of footnote-popup to the center of the footnote button
 **distance(tdiv, bdiv)**
+calculates the distance to place the arrow from the top left of footnote-popup to the center of the footnote button
 
-##Classes
+## Classes
 
 class associated with the ```<t-ftn>``` custom tag, see https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements
 **Footnote()**
 
-##Configuration
+## Configuration
 see the example section for using this in your code!
 Options: 
 ```<t-options data-hover="false" data-unhoverdelete="false" data-hoverdelay="0"></t-options>``` is the default for footnote options
