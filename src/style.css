@@ -1,19 +1,20 @@
 :root {
     --footnote-color: rgba(200, 211, 226, 0.93);
+    --purple: rgba(85, 70, 138, 0.728)
 }
 
 *{
     background-color: #d8c8da;
+    font-size: 25px;
 }
 
 t-ftn {
     display: inline-block;
     width: 3.5em;
     height: 1.2em;
-    background-color: rgba(85, 70, 138, 0.728);
+    background-color: var(--purple);
     border-radius: 1em;
     position: relative;
-    top:50%;
     transform: translateY(25%);
     text-align: center;
     transition: all 0.15s ease-in-out;
@@ -34,7 +35,7 @@ t-ftn::part(aside) {
 /* little arrow on the note */
 t-ftn::part(arrow) {
     position: absolute;
-    top: -1em;
+    top: -0.7em;
     transform: scale(3);
     width: 0; 
     height: 0; 
@@ -53,7 +54,7 @@ t-ftn::part(content) {
     text-align: left;
 }
 
-t-ftn:hover{
+t-ftn:hover, button:hover{
     background-color: rgba(49, 39, 85, 0.728);
 }
 
@@ -69,3 +70,4 @@ t-ftn::after {
     transform: translate(-50%, -75%);
     color: rgb(231, 231, 233);
 }
+
