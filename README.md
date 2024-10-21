@@ -1,5 +1,6 @@
 ## cse210-tinyfoot-team13
 Updated Bigfoot demo: [https://rohanthorat27.github.io/bigfoot/](https://rohanthorat27.github.io/bigfoot/)
+
 Updated Littlefoot demo: [https://rohanthorat27.github.io/bigfoot/](https://rohanthorat27.github.io/littlefoot/)
 # Tinyfoot
 
@@ -10,6 +11,7 @@ Updated Littlefoot demo: [https://rohanthorat27.github.io/bigfoot/](https://roha
 
 ## Installation and Rebuilding
 You can download or clone this repo to your device, and then move the ```dist``` folder to your project workplace. Then, add 
+
 1. 
 ```
 <link
