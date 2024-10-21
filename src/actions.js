@@ -32,7 +32,7 @@ export function initializeFootnotes(){
   }
 }
 
-export function toggleHover(){
+export function toggleHover(){    
     hover = !hover;
     initializeFootnotes();
 }
