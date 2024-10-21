@@ -1,38 +1,9 @@
-import {addFootnote, removeAllFootnotes, toggleFootnote, removeFootnote} from './actions.js'
+import {removeAllFootnotes, initializeFootnotes, toggleHover, toggleUnhover} from './actions.js'
 import {distance} from './utils.js'
-
-let content = {}
-let ftns = document.querySelectorAll("t-ftn"); //selects all footnotes
-
-//options
-let options = document.querySelector("t-options");
-var hover = options.dataset.hover === 'true';
-var unhover = options.dataset.unhoverdelete === 'true';
-let hoverDelay = options.dataset.hoverdelay === undefined ? 0 : options.dataset.hoverdelay;
 
 //removes all footnotes except the one that is opened
 window.addEventListener("click", (e) => removeAllFootnotes(e.target));
-
-
-for(let i of ftns){
-    content[i] = i.innerHTML
-
-    // option grabbing
-    let hover = i.getAttribute("data-hover")
-
-    // hover/click option hub (more options to be added)
-    if(hover){
-        i.addEventListener("mouseenter", addFootnote);
-        i.addEventListener("click", removeFootnote);
-    }else{
-        i.addEventListener("click", toggleFootnote);  
-    }
-
-    if(unhover){
-        i.addEventListener("mouseout", removeFootnoteWithTimer);
-    }
-}
-
+initializeFootnotes();
 
 // Create a class for the element
 class Footnote extends HTMLElement {
@@ -89,4 +60,5 @@ class Footnote extends HTMLElement {
         arr.style.left = perc + "%";
     }
   }
-
+  
+customElements.define("t-ftn", Footnote);
