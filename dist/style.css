@@ -61,13 +61,12 @@ t-ftn:hover, button:hover{
 t-ftn::after {
     /* border: solid; */
     text-align: center;
-    content: "⬤ ‎ ⬤ ‎ ⬤";
+    content: "• • •";
     position: absolute;
     top: 50%;
     left: 50%;
     margin-top: 0.2em;
-    font-size: 0.4em;
+    font-size: 1em;
     transform: translate(-50%, -75%);
     color: rgb(231, 231, 233);
 }
-
