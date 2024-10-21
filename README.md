@@ -8,11 +8,26 @@ Updated Littlefoot demo: [https://rohanthorat27.github.io/bigfoot/](https://roha
 - **Version**: 1.0.0
 - **Author**: CSE210 Team 13
 
-## Installation
-You can install the library with
-```bash
-# instructions
+## Installation and Rebuilding
+You can download or clone this repo to your device, and then move the ```dist``` folder to your project workplace. Then, add 
+```1. <link
+  rel="stylesheet"
+  href="dist/style.css"
+/>
 ```
+```
+2. 
+<script
+  src="dist/index.js"
+  type="application/javascript"
+></script>
+```
+If you wish to change the source code, you can use
+```bash
+npm run build
+```
+to regenerate the ```dist``` folder
+
 ## Usage
 Just add a ```<t-ftn><a id=“ftn:{number}”> footnote content <a/></t-ftn>``` tag!
 Options: 
