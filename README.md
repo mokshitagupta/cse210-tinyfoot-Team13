@@ -28,31 +28,31 @@ if you want a footnote that opens when user hovers on it and disappears 1 second
 
 ##Functions
 adds event listeners and sets up for footnotes
-**initializeFootnotes()
+**initializeFootnotes()**
 
 toggles visibility when the note is clicked
-**toggleFootnote()
+**toggleFootnote()**
 
 adds visibility to clicked footnote
-**addFootnote()
+**addFootnote()**
 
 removes visibility from clicked footnote
-**removeFootnote()
+**removeFootnote()**
 
 removes visibility from clicked footnote with timer (for hover delay)
-**removeFootnoteWithTimer()
+**removeFootnoteWithTimer()**
 
 removes visibility from all footnotes except for current note (if there is one)
 curr = current note
-**removeAllFootnotes(curr)
+**removeAllFootnotes(curr)**
 
 calculates the distance to place the arrow from the top left of footnote-popup to the center of the footnote button
-**distance(tdiv, bdiv)
+**distance(tdiv, bdiv)**
 
 ##Classes
 
 class associated with the ```<t-ftn>``` custom tag, see https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements
-**Footnote()
+**Footnote()**
 
 ##Configuration
 see the example section for using this in your code!
